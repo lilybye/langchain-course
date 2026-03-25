@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 from langchain_core.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
-
+#from langchain_ollama import ChatOllama
 load_dotenv()
 
 
@@ -25,10 +25,11 @@ def main():
     summary_prompt_template = PromptTemplate(
         input_variables=["information"], template=summary_template
     )
+    # the input_variables parameter tells the PromptTemplate which placeholdrs in the tempalte string ( like {information} ) need to be replaced with actual values when the template is used.
     
     # llm = ChatOllama(temperature=0, model="gemma3:270m")
     llm = ChatOpenAI(temperature=0, model="gpt-5")
-    chain = summary_prompt_template | llm
+    chain = summary_prompt_template | llm  # LCEL / LangChain Expression Language
 
     response = chain.invoke(input={"information": information})
     print(response.content)

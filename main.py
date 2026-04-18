@@ -33,5 +33,5 @@ app.get_graph().draw_mermaid_png(output_file_path=filename)
 
 if __name__ == "__main__":
     print("")
-    res = app.invoke({"messages":[HumanMessage(content="What is the weather in Tokyo? List and and then triple it.")]})
-    print(res["messages"][LAST].content)
+    #res = app.invoke({"messages":[HumanMessage(content="What is the weather in Tokyo? List and and then triple it.")]})
+    #print(res["messages"][LAST].content)
